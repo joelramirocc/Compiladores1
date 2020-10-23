@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>fa</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="q0">
+			<x>114.0</x>
+			<y>292.0</y>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>276.0</x>
+			<y>384.0</y>
+		</state>
+		<state id="2" name="q2">
+			<x>482.0</x>
+			<y>194.0</y>
+		</state>
+		<state id="3" name="q3">
+			<x>478.0</x>
+			<y>417.0</y>
+		</state>
+		<state id="4" name="%start">
+			<x>753.0</x>
+			<y>183.0</y>
+		</state>
+		<state id="5" name="q5">
+			<x>763.0</x>
+			<y>437.0</y>
+		</state>
+		<state id="6" name="%start">
+			<x>998.0</x>
+			<y>438.0</y>
+		</state>
+		<state id="7" name="q7">
+			<x>876.0</x>
+			<y>436.0</y>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>-(</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>4</to>
+			<read>-EOF</read>
+		</transition>
+		<transition>
+			<from>7</from>
+			<to>6</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>3</to>
+			<read>-*</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>5</to>
+			<read>-*</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>7</to>
+			<read>-)</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>3</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>-Other</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>-Other</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>-(</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>-*</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>2</to>
+			<read>-#</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>4</to>
+			<read>-EOL</read>
+		</transition>
+		<note>
+			<text>Name:Coments</text>
+			<x>97.0</x>
+			<y>52.0</y>
+		</note>
+	</automaton>
+</structure>
