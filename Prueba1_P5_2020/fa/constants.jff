@@ -61,29 +61,9 @@
 		</state>
 		<!--The list of transitions.-->
 		<transition>
-			<from>2</from>
-			<to>10</to>
-			<read>H</read>
-		</transition>
-		<transition>
 			<from>9</from>
 			<to>9</to>
 			<read>[0-9]</read>
-		</transition>
-		<transition>
-			<from>9</from>
-			<to>10</to>
-			<read>H</read>
-		</transition>
-		<transition>
-			<from>3</from>
-			<to>9</to>
-			<read>[A-F]</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>9</to>
-			<read>[a-f]</read>
 		</transition>
 		<transition>
 			<from>3</from>
@@ -96,54 +76,14 @@
 			<read>[0-7]</read>
 		</transition>
 		<transition>
-			<from>0</from>
-			<to>3</to>
-			<read>[8-9]</read>
+			<from>1</from>
+			<to>10</to>
+			<read>H</read>
 		</transition>
 		<transition>
-			<from>3</from>
-			<to>9</to>
-			<read>[a-f]</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>9</to>
-			<read>[A-F]</read>
-		</transition>
-		<transition>
-			<from>2</from>
-			<to>8</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>2</from>
+			<from>1</from>
 			<to>6</to>
 			<read>o</read>
-		</transition>
-		<transition>
-			<from>4</from>
-			<to>5</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>9</from>
-			<to>9</to>
-			<read>[a-f]</read>
-		</transition>
-		<transition>
-			<from>3</from>
-			<to>8</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>2</to>
-			<read>[2-7]</read>
-		</transition>
-		<transition>
-			<from>2</from>
-			<to>9</to>
-			<read>[a-f]</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -151,29 +91,54 @@
 			<read>b</read>
 		</transition>
 		<transition>
-			<from>2</from>
-			<to>3</to>
-			<read>[8-9]</read>
+			<from>3</from>
+			<to>8</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>9</to>
+			<read>[a-f]</read>
 		</transition>
 		<transition>
 			<from>1</from>
+			<to>2</to>
+			<read>[2-7]</read>
+		</transition>
+		<transition>
+			<from>3</from>
 			<to>10</to>
 			<read>h</read>
 		</transition>
 		<transition>
-			<from>0</from>
-			<to>1</to>
-			<read>[0-1]</read>
-		</transition>
-		<transition>
-			<from>2</from>
+			<from>3</from>
 			<to>9</to>
 			<read>[A-F]</read>
 		</transition>
 		<transition>
 			<from>3</from>
+			<to>9</to>
+			<read>[a-f]</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>2</to>
+			<read>[2-7]</read>
+		</transition>
+		<transition>
+			<from>2</from>
 			<to>10</to>
 			<read>H</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>6</to>
+			<read>o</read>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>10</to>
+			<read>h</read>
 		</transition>
 		<transition>
 			<from>9</from>
@@ -181,12 +146,12 @@
 			<read>[A-F]</read>
 		</transition>
 		<transition>
-			<from>2</from>
-			<to>10</to>
-			<read>h</read>
+			<from>10</from>
+			<to>11</to>
+			<read/>
 		</transition>
 		<transition>
-			<from>1</from>
+			<from>2</from>
 			<to>3</to>
 			<read>[8-9]</read>
 		</transition>
@@ -196,7 +161,17 @@
 			<read>[a-f]</read>
 		</transition>
 		<transition>
-			<from>9</from>
+			<from>0</from>
+			<to>9</to>
+			<read>[A-F]</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>9</to>
+			<read>[a-f]</read>
+		</transition>
+		<transition>
+			<from>1</from>
 			<to>10</to>
 			<read>h</read>
 		</transition>
@@ -206,18 +181,13 @@
 			<read>[A-F]</read>
 		</transition>
 		<transition>
-			<from>2</from>
+			<from>1</from>
 			<to>6</to>
 			<read>O</read>
 		</transition>
 		<transition>
 			<from>1</from>
-			<to>2</to>
-			<read>[2-7]</read>
-		</transition>
-		<transition>
-			<from>6</from>
-			<to>7</to>
+			<to>8</to>
 			<read/>
 		</transition>
 		<transition>
@@ -226,19 +196,54 @@
 			<read>B</read>
 		</transition>
 		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>[0-1]</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>7</to>
+			<read/>
+		</transition>
+		<transition>
 			<from>1</from>
+			<to>3</to>
+			<read>[8-9]</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>9</to>
+			<read>[a-f]</read>
+		</transition>
+		<transition>
+			<from>3</from>
 			<to>10</to>
 			<read>H</read>
 		</transition>
 		<transition>
-			<from>1</from>
-			<to>8</to>
+			<from>0</from>
+			<to>3</to>
+			<read>[8-9]</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>10</to>
+			<read>h</read>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>9</to>
+			<read>[A-F]</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>5</to>
 			<read/>
 		</transition>
 		<transition>
-			<from>10</from>
-			<to>11</to>
-			<read/>
+			<from>2</from>
+			<to>6</to>
+			<read>O</read>
 		</transition>
 		<transition>
 			<from>1</from>
@@ -246,9 +251,14 @@
 			<read>[0-1]</read>
 		</transition>
 		<transition>
-			<from>3</from>
+			<from>2</from>
+			<to>8</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>9</from>
 			<to>10</to>
-			<read>h</read>
+			<read>H</read>
 		</transition>
 		<note>
 			<text>Name: constants</text>

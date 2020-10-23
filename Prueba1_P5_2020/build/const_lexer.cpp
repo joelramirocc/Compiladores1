@@ -43,24 +43,24 @@ Token Lexer::getNextToken()
                 break;
             // constants
             case State::constants_q0:
-                if (((ch >= 'a') && (ch <= 'f')) || ((ch >= 'A') && (ch <= 'F'))) {
-                    text += ch;
-                    state = State::constants_q9;
-                    ch = getNextChar();
-                }
-                else if ((ch >= '8') && (ch <= '9')) {
-                    text += ch;
-                    state = State::constants_q3;
-                    ch = getNextChar();
-                }
-                else if ((ch >= '2') && (ch <= '7')) {
+                if ((ch >= '2') && (ch <= '7')) {
                     text += ch;
                     state = State::constants_q2;
+                    ch = getNextChar();
+                }
+                else if (((ch >= 'A') && (ch <= 'F')) || ((ch >= 'a') && (ch <= 'f'))) {
+                    text += ch;
+                    state = State::constants_q9;
                     ch = getNextChar();
                 }
                 else if ((ch >= '0') && (ch <= '1')) {
                     text += ch;
                     state = State::constants_q1;
+                    ch = getNextChar();
+                }
+                else if ((ch >= '8') && (ch <= '9')) {
+                    text += ch;
+                    state = State::constants_q3;
                     ch = getNextChar();
                 }
                 else {
@@ -69,19 +69,24 @@ Token Lexer::getNextToken()
                 }
                 break;
             case State::constants_q1:
-                if ((ch == 'b') || (ch == 'B')) {
-                    text += ch;
-                    state = State::constants_q4;
-                    ch = getNextChar();
-                }
-                else if ((ch == 'h') || (ch == 'H')) {
+                if ((ch == 'H') || (ch == 'h')) {
                     text += ch;
                     state = State::constants_q10;
                     ch = getNextChar();
                 }
-                else if ((ch >= '8') && (ch <= '9')) {
+                else if ((ch == 'o') || (ch == 'O')) {
                     text += ch;
-                    state = State::constants_q3;
+                    state = State::constants_q6;
+                    ch = getNextChar();
+                }
+                else if ((ch == 'b') || (ch == 'B')) {
+                    text += ch;
+                    state = State::constants_q4;
+                    ch = getNextChar();
+                }
+                else if ((ch >= '2') && (ch <= '7')) {
+                    text += ch;
+                    state = State::constants_q2;
                     ch = getNextChar();
                 }
                 else if (((ch >= 'a') && (ch <= 'f')) || ((ch >= 'A') && (ch <= 'F'))) {
@@ -89,9 +94,9 @@ Token Lexer::getNextToken()
                     state = State::constants_q9;
                     ch = getNextChar();
                 }
-                else if ((ch >= '2') && (ch <= '7')) {
+                else if ((ch >= '8') && (ch <= '9')) {
                     text += ch;
-                    state = State::constants_q2;
+                    state = State::constants_q3;
                     ch = getNextChar();
                 }
                 else if ((ch >= '0') && (ch <= '1')) {
@@ -109,14 +114,14 @@ Token Lexer::getNextToken()
                 return Token::Hex;
                 break;
             case State::constants_q2:
-                if ((ch == 'H') || (ch == 'h')) {
-                    text += ch;
-                    state = State::constants_q10;
-                    ch = getNextChar();
-                }
-                else if ((ch >= '0') && (ch <= '7')) {
+                if ((ch >= '0') && (ch <= '7')) {
                     text += ch;
                     state = State::constants_q2;
+                    ch = getNextChar();
+                }
+                else if ((ch == 'H') || (ch == 'h')) {
+                    text += ch;
+                    state = State::constants_q10;
                     ch = getNextChar();
                 }
                 else if ((ch == 'o') || (ch == 'O')) {
@@ -124,14 +129,14 @@ Token Lexer::getNextToken()
                     state = State::constants_q6;
                     ch = getNextChar();
                 }
-                else if (((ch >= 'a') && (ch <= 'f')) || ((ch >= 'A') && (ch <= 'F'))) {
-                    text += ch;
-                    state = State::constants_q9;
-                    ch = getNextChar();
-                }
                 else if ((ch >= '8') && (ch <= '9')) {
                     text += ch;
                     state = State::constants_q3;
+                    ch = getNextChar();
+                }
+                else if (((ch >= 'a') && (ch <= 'f')) || ((ch >= 'A') && (ch <= 'F'))) {
+                    text += ch;
+                    state = State::constants_q9;
                     ch = getNextChar();
                 }
                 else {
@@ -140,19 +145,19 @@ Token Lexer::getNextToken()
                 }
                 break;
             case State::constants_q3:
-                if (((ch >= 'A') && (ch <= 'F')) || ((ch >= 'a') && (ch <= 'f'))) {
-                    text += ch;
-                    state = State::constants_q9;
-                    ch = getNextChar();
-                }
-                else if ((ch >= '0') && (ch <= '9')) {
+                if ((ch >= '0') && (ch <= '9')) {
                     text += ch;
                     state = State::constants_q3;
                     ch = getNextChar();
                 }
-                else if ((ch == 'H') || (ch == 'h')) {
+                else if ((ch == 'h') || (ch == 'H')) {
                     text += ch;
                     state = State::constants_q10;
+                    ch = getNextChar();
+                }
+                else if (((ch >= 'A') && (ch <= 'F')) || ((ch >= 'a') && (ch <= 'f'))) {
+                    text += ch;
+                    state = State::constants_q9;
                     ch = getNextChar();
                 }
                 else {
@@ -174,7 +179,7 @@ Token Lexer::getNextToken()
                     state = State::constants_q9;
                     ch = getNextChar();
                 }
-                else if ((ch == 'H') || (ch == 'h')) {
+                else if ((ch == 'h') || (ch == 'H')) {
                     text += ch;
                     state = State::constants_q10;
                     ch = getNextChar();
