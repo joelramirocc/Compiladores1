@@ -1,0 +1,4 @@
+/home/joel/Escritorio/compi/Prueba2_P2_2020/b/CMakeFiles/rebuild_cache.dir
+/home/joel/Escritorio/compi/Prueba2_P2_2020/b/CMakeFiles/edit_cache.dir
+/home/joel/Escritorio/compi/Prueba2_P2_2020/b/CMakeFiles/test_parser.dir
+/home/joel/Escritorio/compi/Prueba2_P2_2020/b/CMakeFiles/test.dir

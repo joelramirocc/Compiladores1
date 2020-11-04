@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joel/Escritorio/compi/Prueba2_P2_2020/lexer.h
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+
+/home/joel/Escritorio/compi/Prueba2_P2_2020/parser.cpp
+parser.h
+/home/joel/Escritorio/compi/Prueba2_P2_2020/parser.h
+
+/home/joel/Escritorio/compi/Prueba2_P2_2020/parser.h
+iosfwd
+-
+lexer.h
+/home/joel/Escritorio/compi/Prueba2_P2_2020/lexer.h
+
