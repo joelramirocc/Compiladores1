@@ -3,40 +3,26 @@ Grammar
 
 input -> stmt_list
 
-
-    stmt_list -> stmt_list ; stmt ;
-                | stmt
-
 stmt_list -> stmt stmt_listP
-stmt_listP -> ; stmt ; stmt_listP
+stmt_listP -> stmt ; stmt_listP
         | %eps
 
 
 stmt -> IDENT assign
         | PRINT expr
-        | fun_decl
+        | %eps
 
 
 assign -> = expr
-
-
-fun_decl -> IDENT ( arg ) = expr
-
+        | (arg) = expr
 
 arg -> NUMBER
       | IDENT
 
-
-    expr ->   expr + term
-            | term
-
 expr -> term exprP
 exprP -> + term exprP
+        |- term exprP
         | %eps
-
-
-    term -> term * factor
-            | factor
 
 term -> factor termP
 termP -> * factor termP

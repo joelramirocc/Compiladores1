@@ -46,30 +46,23 @@ void Parser::stmt_list()
 
 void Parser::stmt_listP()
 {
+    stmt();
     if(this->Validate(Token::Semicolon,true))
     {
-        stmt();
-        if(this->Validate(Token::Semicolon,true))
-        {
-            stmt_listP();
-        }
+        stmt_listP();
     }
 }
 
 void Parser::stmt()
 {
-    if(this->Validate(Token::Ident,true))
-    {
-        assign();
-    }
-    else if(this->Validate(Token::KwPrint,true))
+    if(this->Validate(Token::KwPrint,true))
     {
         expr();
     }
-    else
+    else if(this->Validate(Token::Ident,true))
     {
-        fun_decl();
-    }
+        assign();
+    }    
 }
 
 void Parser::assign()
@@ -78,44 +71,28 @@ void Parser::assign()
     {
         expr();
     }
-    else
+    else if(this->Validate(Token::OpenPar,true))
     {
-        throw std::string("Se esperaba = 83");
-    }
-}
-
-void Parser::fun_decl()
-{
-    if(this->Validate(Token::Ident,true))
-    {
-        if(this->Validate(Token::OpenPar,true))
-        {
             arg();
-
-            if(this->Validate(Token::ClosePar,true))
-            {
-                if(this->Validate(Token::OpAssign,true))
-                {
-                    expr();
-                }
-                else 
-                {
-                    throw std::string("Se esperaba = 103");
-                }
-            }
+             if(this->Validate(Token::ClosePar,true))
+             {
+                  if(this->Validate(Token::OpAssign,true))
+                  {
+                      expr();
+                  }
+                    else
+                    {
+                        throw std::string("Se esperaba =");
+                    }
+             }
             else
             {
-                throw std::string("Se esperaba ) 108");
+                throw std::string("Se esperaba )");
             }
-        }
-        else 
-        {
-            throw std::string("Se esperaba (");
-        }
     }
     else
     {
-        throw std::string("Se esperaba identifier");
+        throw std::string("Se esperaba = o (");
     }
 }
 
@@ -139,8 +116,9 @@ void Parser::expr()
 
 void Parser::exprP()
 {
-    if(this->Validate(Token::OpAdd,true))
+    if(this->Validate(Token::OpAdd,false) || this->Validate(Token::OpSub,false))
     {
+        this->Consume();
         term();
         exprP();
     }
@@ -172,7 +150,7 @@ void Parser::factor()
         expr();
         if(!this->Validate(Token::ClosePar,true))
         {
-            throw std::string("Se esperaba ) 175");
+            throw std::string("Se esperaba )");
         }
     }
     else

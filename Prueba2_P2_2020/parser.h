@@ -23,7 +23,6 @@ private:
     void stmt_listP();
     void stmt();
     void assign();
-    void fun_decl();
     void arg();
     void expr();
     void exprP();
