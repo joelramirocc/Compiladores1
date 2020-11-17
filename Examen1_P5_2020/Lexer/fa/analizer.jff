@@ -80,6 +80,35 @@
 		<state id="15" name="q15">
 			<x>845.0</x>
 			<y>486.0</y>
+			<label>text= "";</label>
+		</state>
+		<state id="16" name="q16">
+			<x>968.0</x>
+			<y>514.0</y>
+		</state>
+		<state id="17" name="q17">
+			<x>1070.0</x>
+			<y>352.0</y>
+		</state>
+		<state id="18" name="q18">
+			<x>1179.0</x>
+			<y>350.0</y>
+		</state>
+		<state id="19" name="q19">
+			<x>1298.0</x>
+			<y>561.0</y>
+		</state>
+		<state id="20" name="q20">
+			<x>1149.0</x>
+			<y>522.0</y>
+		</state>
+		<state id="21" name="q21">
+			<x>1208.0</x>
+			<y>614.0</y>
+		</state>
+		<state id="22" name="%start">
+			<x>1279.0</x>
+			<y>466.0</y>
 		</state>
 		<!--The list of transitions.-->
 		<transition>
@@ -88,24 +117,9 @@
 			<read>/</read>
 		</transition>
 		<transition>
-			<from>11</from>
-			<to>11</to>
-			<read>EOL</read>
-		</transition>
-		<transition>
 			<from>2</from>
 			<to>7</to>
 			<read/>
-		</transition>
-		<transition>
-			<from>10</from>
-			<to>14</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>3</to>
-			<read>(</read>
 		</transition>
 		<transition>
 			<from>0</from>
@@ -113,8 +127,13 @@
 			<read>+</read>
 		</transition>
 		<transition>
-			<from>3</from>
-			<to>8</to>
+			<from>21</from>
+			<to>19</to>
+			<read>-/</read>
+		</transition>
+		<transition>
+			<from>20</from>
+			<to>16</to>
 			<read/>
 		</transition>
 		<transition>
@@ -128,14 +147,34 @@
 			<read/>
 		</transition>
 		<transition>
+			<from>17</from>
+			<to>18</to>
+			<read>-EOL</read>
+		</transition>
+		<transition>
 			<from>0</from>
 			<to>2</to>
 			<read>-</read>
 		</transition>
 		<transition>
+			<from>21</from>
+			<to>21</to>
+			<read>-!</read>
+		</transition>
+		<transition>
+			<from>17</from>
+			<to>18</to>
+			<read>-EOF</read>
+		</transition>
+		<transition>
 			<from>0</from>
 			<to>11</to>
 			<read>EOL</read>
+		</transition>
+		<transition>
+			<from>18</from>
+			<to>22</to>
+			<read/>
 		</transition>
 		<transition>
 			<from>11</from>
@@ -153,14 +192,74 @@
 			<read>)</read>
 		</transition>
 		<transition>
-			<from>10</from>
-			<to>15</to>
-			<read>-!</read>
+			<from>15</from>
+			<to>17</to>
+			<read/>
 		</transition>
 		<transition>
 			<from>4</from>
 			<to>9</to>
 			<read/>
+		</transition>
+		<transition>
+			<from>16</from>
+			<to>20</to>
+			<read>-!</read>
+		</transition>
+		<transition>
+			<from>11</from>
+			<to>11</to>
+			<read>EOL</read>
+		</transition>
+		<transition>
+			<from>10</from>
+			<to>14</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>3</to>
+			<read>(</read>
+		</transition>
+		<transition>
+			<from>20</from>
+			<to>21</to>
+			<read>-!</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>8</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>21</from>
+			<to>16</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>10</from>
+			<to>15</to>
+			<read>-!</read>
+		</transition>
+		<transition>
+			<from>17</from>
+			<to>17</to>
+			<read>-Other</read>
+		</transition>
+		<transition>
+			<from>16</from>
+			<to>16</to>
+			<read>-Other</read>
+		</transition>
+		<transition>
+			<from>19</from>
+			<to>22</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>15</from>
+			<to>16</to>
+			<read>-!</read>
 		</transition>
 		<note>
 			<text>Name: Analizer</text>

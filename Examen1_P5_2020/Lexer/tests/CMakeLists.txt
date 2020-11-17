@@ -13,7 +13,6 @@ add_custom_command (
     MAIN_DEPENDENCY ${PROJECT_SOURCE_DIR}/../fa/expr_lexer.fa2l
     DEPENDS ${PROJECT_SOURCE_DIR}/../fa/start.jff
             ${PROJECT_SOURCE_DIR}/../fa/analizer.jff
-            ${PROJECT_SOURCE_DIR}/../fa/bcomment.jff  
             ${PROJECT_SOURCE_DIR}/../fa/constants.jff
             ${PROJECT_SOURCE_DIR}/../fa/identifier.jff
   )

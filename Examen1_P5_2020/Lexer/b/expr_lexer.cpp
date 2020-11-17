@@ -10,18 +10,17 @@ enum class State {
     Analizer_q1,
     Analizer_q10,
     Analizer_q11,
+    Analizer_q15,
+    Analizer_q16,
+    Analizer_q17,
+    Analizer_q18,
+    Analizer_q19,
     Analizer_q2,
+    Analizer_q20,
+    Analizer_q21,
     Analizer_q3,
     Analizer_q4,
     Analizer_q5,
-    Coments_q0,
-    Coments_q10,
-    Coments_q11,
-    Coments_q12,
-    Coments_q13,
-    Coments_q2,
-    Coments_q8,
-    Coments_q9,
     ident_q0,
     ident_q1,
 };
@@ -101,24 +100,9 @@ Token Lexer::getNextToken()
                 break;
             // Analizer
             case State::Analizer_q0:
-                if (ch == '\n') {
-                    text += ch;
-                    state = State::Analizer_q11;
-                    ch = getNextChar();
-                }
-                else if (ch == '*') {
-                    text += ch;
-                    state = State::Analizer_q5;
-                    ch = getNextChar();
-                }
-                else if (ch == '/') {
+                if (ch == '/') {
                     text += ch;
                     state = State::Analizer_q10;
-                    ch = getNextChar();
-                }
-                else if (ch == '(') {
-                    text += ch;
-                    state = State::Analizer_q3;
                     ch = getNextChar();
                 }
                 else if (ch == '+') {
@@ -126,9 +110,19 @@ Token Lexer::getNextToken()
                     state = State::Analizer_q1;
                     ch = getNextChar();
                 }
+                else if (ch == '*') {
+                    text += ch;
+                    state = State::Analizer_q5;
+                    ch = getNextChar();
+                }
                 else if (ch == '-') {
                     text += ch;
                     state = State::Analizer_q2;
+                    ch = getNextChar();
+                }
+                else if (ch == '\n') {
+                    text += ch;
+                    state = State::Analizer_q11;
                     ch = getNextChar();
                 }
                 else if (ch == ')') {
@@ -136,9 +130,14 @@ Token Lexer::getNextToken()
                     state = State::Analizer_q4;
                     ch = getNextChar();
                 }
+                else if (ch == '(') {
+                    text += ch;
+                    state = State::Analizer_q3;
+                    ch = getNextChar();
+                }
                 else {
-                    // Trying next automaton 'Coments
-                    state = State::Coments_q0;
+                    // Trying next automaton 'ident
+                    state = State::ident_q0;
                 }
                 break;
             case State::Analizer_q1:
@@ -146,8 +145,14 @@ Token Lexer::getNextToken()
                 return Token::OpAdd;
                 break;
             case State::Analizer_q10:
-                ungetChar(ch);
-                return Token::OpDiv;
+                if (ch == '!') {
+                    state = State::Analizer_q15;
+                    ch = getNextChar();
+                }
+                else {
+                    ungetChar(ch);
+                    return Token::OpDiv;
+                }
                 break;
             case State::Analizer_q11:
                 if (ch == '\n') {
@@ -160,9 +165,67 @@ Token Lexer::getNextToken()
                     return Token::Eol;
                 }
                 break;
+            case State::Analizer_q15:
+                text= "";;
+                if (ch == '!') {
+                    state = State::Analizer_q16;
+                    ch = getNextChar();
+                }
+                else {
+                    state = State::Analizer_q17;
+                }
+                break;
+            case State::Analizer_q16:
+                if (ch == '!') {
+                    state = State::Analizer_q20;
+                    ch = getNextChar();
+                }
+                else {
+                    state = State::Analizer_q16;
+                    ch = getNextChar();
+                }
+                break;
+            case State::Analizer_q17:
+                if ((ch == '\n') || (ch == EOF)) {
+                    state = State::Analizer_q18;
+                    ch = getNextChar();
+                }
+                else {
+                    state = State::Analizer_q17;
+                    ch = getNextChar();
+                }
+                break;
+            case State::Analizer_q18:
+                state = State::start_q0;
+                break;
+            case State::Analizer_q19:
+                state = State::start_q0;
+                break;
             case State::Analizer_q2:
                 ungetChar(ch);
                 return Token::OpSub;
+                break;
+            case State::Analizer_q20:
+                if (ch == '!') {
+                    state = State::Analizer_q21;
+                    ch = getNextChar();
+                }
+                else {
+                    state = State::Analizer_q16;
+                }
+                break;
+            case State::Analizer_q21:
+                if (ch == '/') {
+                    state = State::Analizer_q19;
+                    ch = getNextChar();
+                }
+                else if (ch == '!') {
+                    state = State::Analizer_q21;
+                    ch = getNextChar();
+                }
+                else {
+                    state = State::Analizer_q16;
+                }
                 break;
             case State::Analizer_q3:
                 ungetChar(ch);
@@ -175,82 +238,6 @@ Token Lexer::getNextToken()
             case State::Analizer_q5:
                 ungetChar(ch);
                 return Token::OpMul;
-                break;
-            // Coments
-            case State::Coments_q0:
-                if (ch == '/') {
-                    state = State::Coments_q8;
-                    ch = getNextChar();
-                }
-                else {
-                    // Trying next automaton 'ident
-                    state = State::ident_q0;
-                }
-                break;
-            case State::Coments_q10:
-                if (ch == '!') {
-                    state = State::Coments_q11;
-                    ch = getNextChar();
-                }
-                else {
-                    state = State::Coments_q10;
-                    ch = getNextChar();
-                }
-                break;
-            case State::Coments_q11:
-                if (ch == '!') {
-                    state = State::Coments_q12;
-                    ch = getNextChar();
-                }
-                else {
-                    state = State::Coments_q10;
-                }
-                break;
-            case State::Coments_q12:
-                if (ch == '!') {
-                    state = State::Coments_q12;
-                    ch = getNextChar();
-                }
-                else if (ch == '/') {
-                    state = State::Coments_q13;
-                    ch = getNextChar();
-                }
-                else {
-                    state = State::Coments_q10;
-                }
-                break;
-            case State::Coments_q13:
-                ungetChar(ch);
-                state = State::start_q0;
-                break;
-            case State::Coments_q2:
-                if ((ch == EOF) || (ch == '\n')) {
-                    state = State::start_q0;
-                    ch = getNextChar();
-                }
-                else {
-                    state = State::Coments_q2;
-                    ch = getNextChar();
-                }
-                break;
-            case State::Coments_q8:
-                if (ch == '!') {
-                    state = State::Coments_q9;
-                    ch = getNextChar();
-                }
-                else {
-                    // Trying next automaton 'ident
-                    state = State::ident_q0;
-                }
-                break;
-            case State::Coments_q9:
-                if (ch == '!') {
-                    state = State::Coments_q10;
-                    ch = getNextChar();
-                }
-                else {
-                    state = State::Coments_q2;
-                }
                 break;
             // ident
             case State::ident_q0:

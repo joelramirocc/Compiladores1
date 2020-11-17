@@ -6,7 +6,6 @@
     %file "start.jff";
     %file "constants.jff";
     %file "analizer.jff";
-    %file "bcomment.jff";
     %file "identifier.jff";
 
 

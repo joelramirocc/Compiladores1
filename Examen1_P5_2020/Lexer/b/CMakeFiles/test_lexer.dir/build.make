@@ -78,7 +78,6 @@ include CMakeFiles/test_lexer.dir/flags.make
 
 expr_tokens.h: /home/joel/Escritorio/compi/Examen1_P5_2020/Lexer/fa/start.jff
 expr_tokens.h: /home/joel/Escritorio/compi/Examen1_P5_2020/Lexer/fa/analizer.jff
-expr_tokens.h: /home/joel/Escritorio/compi/Examen1_P5_2020/Lexer/fa/bcomment.jff
 expr_tokens.h: /home/joel/Escritorio/compi/Examen1_P5_2020/Lexer/fa/constants.jff
 expr_tokens.h: /home/joel/Escritorio/compi/Examen1_P5_2020/Lexer/fa/identifier.jff
 expr_tokens.h: /home/joel/Escritorio/compi/Examen1_P5_2020/Lexer/fa/expr_lexer.fa2l
