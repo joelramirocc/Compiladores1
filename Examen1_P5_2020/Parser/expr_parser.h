@@ -15,6 +15,19 @@ public:
 private:
     Lexer& lexer;
     std::ostream& out;
+    Symbol cT;
+    bool Validate(Symbol t, bool consume);
+    void Consume();
+    void input();
+    void smtList();
+    void smtListP();
+    void smt();
+    void expression();
+    void expressionP();
+    void termino();
+    void terminoP();
+    void factor();
+    std::string Tostring(Symbol s);
 };
 
 #endif

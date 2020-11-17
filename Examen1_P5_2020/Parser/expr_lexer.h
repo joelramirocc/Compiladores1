@@ -16,7 +16,7 @@ public:
         it = tklist.begin();
     }
 
-    Symbol getNextToken() {
+    Symbol getNextSymbol() {
         if (it == tklist.end()) {
             return Symbol::Eof;
         }

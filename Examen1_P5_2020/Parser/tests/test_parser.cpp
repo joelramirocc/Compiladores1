@@ -3,7 +3,7 @@
 #include "doctest.h"
 #include "expr_lexer.h"
 #include "expr_parser.h"
-
+using namespace std;
 std::vector<SymbolInfo> error = {
     std::make_pair(Symbol::Ident, "x"),
     std::make_pair(Symbol::Eof, "EOF")
@@ -85,8 +85,9 @@ TEST_CASE("Assign statement") {
     try {
         p.parse();
         parseSuccess = true;
-    } catch (...) {
+    } catch (std::exception e) {
         parseSuccess = false;
+        cout<<e.what()<<endl;
     }
     
     std::string str = out.str();

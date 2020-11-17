@@ -1,0 +1,44 @@
+input -> smtlist
+
+smtList -> smtlist EOL smt
+        | smt
+
+smt -> kwPRINT (expression)
+        | IDENT = expression
+
+expression -> expression + termino
+        |     expression - termino
+        | termino
+
+termino -> termino * factor
+        | termino / factor
+        | factor
+
+factor -> NUMBER
+        | (expression)
+        | IDENT
+
+
+////// CONVERTIDA////////
+input -> smtlist
+
+smtList -> smt smtListP
+smtListP -> EOL smt smtListP
+          | %eps
+
+smt -> kwPRINT (expression)
+      | IDENT = expression
+
+expression -> termino expressionP
+expressionP -> + termino expressionP
+             | - termino expressionP     
+             | %eps
+
+termino -> factor terminoP
+terminoP -> * factor terminoP
+          | / factor terminoP
+          | %eps
+
+factor -> NUMBER
+        | (expression)
+        | IDENT
