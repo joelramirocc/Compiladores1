@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/test_parser.dir/home/joel/Escritorio/compi/Examen1_P5_2020/Parser/expr_parser.cpp.o CMakeFiles/test_parser.dir/test_parser.cpp.o -o test_parser 
