@@ -1,3 +1,0 @@
-/home/joel/Escritorio/compi/Prueba1_P5_2020/build/CMakeFiles/rebuild_cache.dir
-/home/joel/Escritorio/compi/Prueba1_P5_2020/build/CMakeFiles/test_lexer.dir
-/home/joel/Escritorio/compi/Prueba1_P5_2020/build/CMakeFiles/edit_cache.dir
