@@ -1,20 +1,17 @@
-program GCD;
+program array1;
 var
-a, b: Integer;
-x, y, z: Integer;
-// Funcion que calcula el maximo comun divisor
-function gcd(a: Integer; b: Integer): Integer;
+    a: array[1 .. 5] of Integer;
+    i, x: Integer;
 begin
-if b = 0 then
-gcd := a
-else
-gcd := gcd(b, a mod b);
-end;
-begin
-a := 10;
-b := 20;
-x := a;
-y := b;
-z := gcd(x, y);
-writeln(z);
+    a[1] := 10;
+    a[2] := 20;
+    a[3] := 30;
+    a[4] := 40;
+    a[5] := 50;
+
+    writeln(a[1], ' ',a[2], ' ',a[3], ' ',a[4], ' ',a[5]);
+    x := a[1];
+    a[1] := a[2];
+    a[2] := x;
+    writeln(a[1], ' ',a[2], ' ',a[3], ' ',a[4], ' ',a[5]);
 end.

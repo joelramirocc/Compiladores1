@@ -14,10 +14,17 @@
 		<state id="2" name="q2">
 			<x>373.0</x>
 			<y>142.0</y>
+			<label>text="";</label>
 		</state>
 		<state id="3" name="q3">
 			<x>525.0</x>
 			<y>176.0</y>
+		</state>
+		<state id="5" name="q5">
+			<x>383.0</x>
+			<y>264.0</y>
+			<label>Token::OpDiv</label>
+			<final/>
 		</state>
 		<state id="6" name="q6">
 			<x>246.0</x>
@@ -33,11 +40,6 @@
 		</state>
 		<!--The list of transitions.-->
 		<transition>
-			<from>0</from>
-			<to>1</to>
-			<read>-/</read>
-		</transition>
-		<transition>
 			<from>1</from>
 			<to>2</to>
 			<read>-/</read>
@@ -45,17 +47,32 @@
 		<transition>
 			<from>2</from>
 			<to>3</to>
-			<read>-EOF</read>
+			<read>-EOL</read>
 		</transition>
 		<transition>
-			<from>9</from>
-			<to>8</to>
+			<from>6</from>
+			<to>9</to>
+			<read>-}</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>5</to>
 			<read/>
 		</transition>
 		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>/</read>
+		</transition>
+		<transition>
 			<from>2</from>
-			<to>3</to>
-			<read>-EOL</read>
+			<to>2</to>
+			<read>-Other</read>
+		</transition>
+		<transition>
+			<from>6</from>
+			<to>6</to>
+			<read>-Other</read>
 		</transition>
 		<transition>
 			<from>3</from>
@@ -64,13 +81,8 @@
 		</transition>
 		<transition>
 			<from>2</from>
-			<to>2</to>
-			<read>-Other</read>
-		</transition>
-		<transition>
-			<from>6</from>
-			<to>6</to>
-			<read>-Other</read>
+			<to>3</to>
+			<read>-EOF</read>
 		</transition>
 		<transition>
 			<from>0</from>
@@ -78,9 +90,9 @@
 			<read>-{</read>
 		</transition>
 		<transition>
-			<from>6</from>
-			<to>9</to>
-			<read>-}</read>
+			<from>9</from>
+			<to>8</to>
+			<read/>
 		</transition>
 		<note>
 			<text>Name: comments</text>

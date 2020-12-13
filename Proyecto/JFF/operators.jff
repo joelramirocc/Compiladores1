@@ -8,8 +8,8 @@
 			<initial/>
 		</state>
 		<state id="1" name="q1">
-			<x>341.0</x>
-			<y>385.0</y>
+			<x>340.0</x>
+			<y>444.0</y>
 		</state>
 		<state id="2" name="q2">
 			<x>338.0</x>
@@ -20,16 +20,16 @@
 			<y>211.0</y>
 		</state>
 		<state id="4" name="q4">
-			<x>338.0</x>
-			<y>512.0</y>
+			<x>337.0</x>
+			<y>571.0</y>
 		</state>
 		<state id="5" name="q5">
-			<x>338.0</x>
-			<y>636.0</y>
+			<x>336.0</x>
+			<y>751.0</y>
 		</state>
 		<state id="6" name="q6">
-			<x>553.0</x>
-			<y>641.0</y>
+			<x>551.0</x>
+			<y>756.0</y>
 			<label>Token::OperGreaterThan</label>
 			<final/>
 		</state>
@@ -42,50 +42,50 @@
 			<y>271.0</y>
 		</state>
 		<state id="9" name="q9">
-			<x>340.0</x>
-			<y>450.0</y>
+			<x>339.0</x>
+			<y>509.0</y>
 		</state>
 		<state id="10" name="q10">
-			<x>339.0</x>
-			<y>572.0</y>
+			<x>338.0</x>
+			<y>631.0</y>
 		</state>
 		<state id="11" name="q11">
-			<x>440.0</x>
-			<y>706.0</y>
+			<x>438.0</x>
+			<y>821.0</y>
 		</state>
 		<state id="12" name="q12">
-			<x>551.0</x>
-			<y>709.0</y>
+			<x>549.0</x>
+			<y>824.0</y>
 			<label>Token::OperGreaterOrEqualThan</label>
 			<final/>
 		</state>
 		<state id="13" name="q13">
-			<x>337.0</x>
-			<y>770.0</y>
+			<x>339.0</x>
+			<y>945.0</y>
 		</state>
 		<state id="14" name="q14">
-			<x>551.0</x>
-			<y>771.0</y>
+			<x>553.0</x>
+			<y>946.0</y>
 			<label>Token::OperLessThan</label>
 			<final/>
 		</state>
 		<state id="15" name="q15">
-			<x>441.0</x>
-			<y>835.0</y>
+			<x>443.0</x>
+			<y>1010.0</y>
 		</state>
 		<state id="16" name="q16">
-			<x>437.0</x>
-			<y>900.0</y>
+			<x>439.0</x>
+			<y>1075.0</y>
 		</state>
 		<state id="17" name="q17">
-			<x>551.0</x>
-			<y>839.0</y>
+			<x>553.0</x>
+			<y>1014.0</y>
 			<label>Token::OperDifferentThan</label>
 			<final/>
 		</state>
 		<state id="18" name="q18">
-			<x>551.0</x>
-			<y>904.0</y>
+			<x>553.0</x>
+			<y>1079.0</y>
 			<label>Token::OperLessOrEqualThan</label>
 			<final/>
 		</state>
@@ -94,28 +94,28 @@
 			<y>329.0</y>
 		</state>
 		<state id="20" name="q20">
-			<x>336.0</x>
-			<y>963.0</y>
+			<x>338.0</x>
+			<y>1138.0</y>
 		</state>
 		<state id="21" name="q21">
-			<x>333.0</x>
-			<y>1031.0</y>
+			<x>335.0</x>
+			<y>1206.0</y>
 		</state>
 		<state id="22" name="q22">
-			<x>550.0</x>
-			<y>1032.0</y>
-			<label>Token::OperClosePar</label>
+			<x>552.0</x>
+			<y>1207.0</y>
+			<label>Token::OperOpenPar</label>
 			<final/>
 		</state>
 		<state id="23" name="q23">
-			<x>436.0</x>
-			<y>1144.0</y>
+			<x>438.0</x>
+			<y>1319.0</y>
 			<label>text="";</label>
 		</state>
 		<state id="24" name="q24">
-			<x>551.0</x>
-			<y>967.0</y>
-			<label>Token::OperPar</label>
+			<x>553.0</x>
+			<y>1142.0</y>
+			<label>Token::OperClosePar</label>
 			<final/>
 		</state>
 		<state id="25" name="q25">
@@ -143,36 +143,36 @@
 			<final/>
 		</state>
 		<state id="29" name="q29">
-			<x>559.0</x>
-			<y>387.0</y>
+			<x>558.0</x>
+			<y>446.0</y>
 			<label>Token::OperAssign</label>
 			<final/>
 		</state>
 		<state id="30" name="q30">
-			<x>556.0</x>
-			<y>451.0</y>
+			<x>555.0</x>
+			<y>510.0</y>
 			<label>Token::OperSub</label>
 			<final/>
 		</state>
 		<state id="31" name="q31">
-			<x>556.0</x>
-			<y>514.0</y>
+			<x>555.0</x>
+			<y>573.0</y>
 			<label>Token::OperAdd</label>
 			<final/>
 		</state>
 		<state id="32" name="q32">
-			<x>555.0</x>
-			<y>576.0</y>
+			<x>554.0</x>
+			<y>635.0</y>
 			<label>Token::OperAsterisk</label>
 			<final/>
 		</state>
 		<state id="33" name="q33">
-			<x>551.0</x>
-			<y>1142.0</y>
+			<x>553.0</x>
+			<y>1317.0</y>
 		</state>
 		<state id="34" name="%start">
-			<x>668.0</x>
-			<y>1140.0</y>
+			<x>670.0</x>
+			<y>1315.0</y>
 		</state>
 		<state id="35" name="q35">
 			<x>560.0</x>
@@ -180,61 +180,66 @@
 			<label>Token::OperColon</label>
 			<final/>
 		</state>
+		<state id="36" name="q36">
+			<x>426.0</x>
+			<y>696.0</y>
+		</state>
+		<state id="37" name="q37">
+			<x>550.0</x>
+			<y>700.0</y>
+			<label>Token::OperGreaterGreaterThan</label>
+			<final/>
+		</state>
+		<state id="38" name="q38">
+			<x>439.0</x>
+			<y>886.0</y>
+		</state>
+		<state id="39" name="q39">
+			<x>549.0</x>
+			<y>886.0</y>
+			<label>Token::LessLessThan</label>
+			<final/>
+		</state>
+		<state id="40" name="q40">
+			<x>445.0</x>
+			<y>392.0</y>
+		</state>
+		<state id="41" name="q41">
+			<x>561.0</x>
+			<y>396.0</y>
+			<label>Token::OpColonAssign</label>
+			<final/>
+		</state>
+		<state id="42" name="q42">
+			<x>8.0</x>
+			<y>162.0</y>
+		</state>
+		<state id="43" name="q43">
+			<x>79.0</x>
+			<y>98.0</y>
+			<label>Token::OpPoint</label>
+			<final/>
+		</state>
+		<state id="44" name="q44">
+			<x>76.0</x>
+			<y>203.0</y>
+		</state>
+		<state id="45" name="q45">
+			<x>230.0</x>
+			<y>90.0</y>
+			<label>Token::OpPointPoint</label>
+			<final/>
+		</state>
 		<!--The list of transitions.-->
 		<transition>
-			<from>23</from>
-			<to>33</to>
-			<read>-*</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>8</to>
-			<read>;</read>
-		</transition>
-		<transition>
-			<from>21</from>
+			<from>33</from>
 			<to>23</to>
-			<read>*</read>
-		</transition>
-		<transition>
-			<from>7</from>
-			<to>26</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>20</from>
-			<to>24</to>
 			<read/>
 		</transition>
 		<transition>
 			<from>5</from>
-			<to>11</to>
-			<read>=</read>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>29</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>7</to>
-			<read>]</read>
-		</transition>
-		<transition>
-			<from>5</from>
-			<to>6</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>19</from>
-			<to>35</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>4</from>
-			<to>31</to>
-			<read/>
+			<to>36</to>
+			<read>&gt;</read>
 		</transition>
 		<transition>
 			<from>0</from>
@@ -242,43 +247,13 @@
 			<read>,</read>
 		</transition>
 		<transition>
-			<from>0</from>
-			<to>10</to>
-			<read>*</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>19</to>
-			<read>:</read>
-		</transition>
-		<transition>
-			<from>33</from>
-			<to>23</to>
+			<from>9</from>
+			<to>30</to>
 			<read/>
 		</transition>
 		<transition>
-			<from>0</from>
-			<to>9</to>
-			<read>-</read>
-		</transition>
-		<transition>
-			<from>33</from>
-			<to>33</to>
-			<read>-*</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>5</to>
-			<read>&gt;</read>
-		</transition>
-		<transition>
-			<from>13</from>
-			<to>16</to>
-			<read>=</read>
-		</transition>
-		<transition>
-			<from>9</from>
-			<to>30</to>
+			<from>1</from>
+			<to>29</to>
 			<read/>
 		</transition>
 		<transition>
@@ -292,19 +267,9 @@
 			<read>-)</read>
 		</transition>
 		<transition>
-			<from>0</from>
-			<to>2</to>
-			<read>[</read>
-		</transition>
-		<transition>
 			<from>13</from>
-			<to>15</to>
-			<read>&gt;</read>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>21</to>
-			<read>(</read>
+			<to>14</to>
+			<read/>
 		</transition>
 		<transition>
 			<from>0</from>
@@ -312,33 +277,23 @@
 			<read>+</read>
 		</transition>
 		<transition>
-			<from>10</from>
-			<to>32</to>
-			<read/>
-		</transition>
-		<transition>
-			<from>13</from>
-			<to>14</to>
-			<read/>
-		</transition>
-		<transition>
 			<from>3</from>
 			<to>27</to>
 			<read/>
 		</transition>
 		<transition>
-			<from>0</from>
-			<to>13</to>
-			<read>&lt;</read>
-		</transition>
-		<transition>
-			<from>16</from>
-			<to>18</to>
+			<from>40</from>
+			<to>41</to>
 			<read/>
 		</transition>
 		<transition>
-			<from>2</from>
-			<to>25</to>
+			<from>19</from>
+			<to>35</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>11</from>
+			<to>12</to>
 			<read/>
 		</transition>
 		<transition>
@@ -348,18 +303,143 @@
 		</transition>
 		<transition>
 			<from>0</from>
+			<to>2</to>
+			<read>[</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>7</to>
+			<read>]</read>
+		</transition>
+		<transition>
+			<from>36</from>
+			<to>37</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>25</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>21</from>
+			<to>23</to>
+			<read>*</read>
+		</transition>
+		<transition>
+			<from>23</from>
+			<to>33</to>
+			<read>-*</read>
+		</transition>
+		<transition>
+			<from>33</from>
+			<to>33</to>
+			<read>-*</read>
+		</transition>
+		<transition>
+			<from>10</from>
+			<to>32</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
 			<to>20</to>
 			<read>)</read>
 		</transition>
 		<transition>
-			<from>15</from>
-			<to>17</to>
+			<from>0</from>
+			<to>19</to>
+			<read>:</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>21</to>
+			<read>(</read>
+		</transition>
+		<transition>
+			<from>42</from>
+			<to>43</to>
 			<read/>
 		</transition>
 		<transition>
-			<from>8</from>
-			<to>28</to>
+			<from>0</from>
+			<to>9</to>
+			<read>-</read>
+		</transition>
+		<transition>
+			<from>13</from>
+			<to>16</to>
+			<read>=</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>31</to>
 			<read/>
+		</transition>
+		<transition>
+			<from>42</from>
+			<to>44</to>
+			<read>.</read>
+		</transition>
+		<transition>
+			<from>13</from>
+			<to>38</to>
+			<read>&lt;</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>13</to>
+			<read>&lt;</read>
+		</transition>
+		<transition>
+			<from>38</from>
+			<to>39</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>16</from>
+			<to>18</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>19</from>
+			<to>40</to>
+			<read>=</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>5</to>
+			<read>&gt;</read>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>42</to>
+			<read>.</read>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>8</to>
+			<read>;</read>
+		</transition>
+		<transition>
+			<from>44</from>
+			<to>45</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>20</from>
+			<to>24</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>10</to>
+			<read>*</read>
 		</transition>
 		<transition>
 			<from>23</from>
@@ -367,13 +447,33 @@
 			<read>-Other</read>
 		</transition>
 		<transition>
-			<from>11</from>
-			<to>12</to>
+			<from>15</from>
+			<to>17</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>13</from>
+			<to>15</to>
+			<read>&gt;</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>28</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>11</to>
+			<read>=</read>
+		</transition>
+		<transition>
+			<from>7</from>
+			<to>26</to>
 			<read/>
 		</transition>
 		<note>
 			<text>Name: operators</text>
-			<x>479.0</x>
+			<x>671.0</x>
 			<y>16.0</y>
 		</note>
 	</automaton>

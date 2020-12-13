@@ -1,0 +1,4 @@
+program array1;
+begin
+;
+end.
