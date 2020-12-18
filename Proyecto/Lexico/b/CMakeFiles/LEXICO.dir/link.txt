@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/LEXICO.dir/main.cpp.o CMakeFiles/LEXICO.dir/lexer.cpp.o -o LEXICO 

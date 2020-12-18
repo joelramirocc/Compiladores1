@@ -1,3 +1,0 @@
-/home/joel/Compiladores1/Proyecto/Sintactico/b/CMakeFiles/rebuild_cache.dir
-/home/joel/Compiladores1/Proyecto/Sintactico/b/CMakeFiles/LEXICO.dir
-/home/joel/Compiladores1/Proyecto/Sintactico/b/CMakeFiles/edit_cache.dir
