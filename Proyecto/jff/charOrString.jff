@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>fa</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="q0">
+			<x>139.0</x>
+			<y>359.0</y>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>263.0</x>
+			<y>360.0</y>
+		</state>
+		<state id="2" name="ret:q2">
+			<x>686.0</x>
+			<y>358.0</y>
+			<label>return charOrString(text);</label>
+		</state>
+		<state id="3" name="q3">
+			<x>414.0</x>
+			<y>360.0</y>
+		</state>
+		<state id="4" name="q4">
+			<x>416.0</x>
+			<y>485.0</y>
+			<label>std::cerr&lt;&lt;"Invalid stringConstant \n";text="";</label>
+		</state>
+		<state id="5" name="%start">
+			<x>687.0</x>
+			<y>487.0</y>
+		</state>
+		<state id="8" name="q8">
+			<x>263.0</x>
+			<y>225.0</y>
+		</state>
+		<state id="9" name="q9">
+			<x>535.0</x>
+			<y>357.0</y>
+		</state>
+		<state id="12" name="q12">
+			<x>266.0</x>
+			<y>100.0</y>
+			<label>std::cerr&lt;&lt;"No valid empty stringConstant \n";text="";</label>
+		</state>
+		<state id="13" name="q13">
+			<x>522.0</x>
+			<y>100.0</y>
+		</state>
+		<state id="14" name="%start">
+			<x>679.0</x>
+			<y>100.0</y>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>8</from>
+			<to>12</to>
+			<read>-EOF</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>12</to>
+			<read>Other</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>9</to>
+			<read>'</read>
+		</transition>
+		<transition>
+			<from>13</from>
+			<to>14</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>4</to>
+			<read>-EOL</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>-EOF</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>3</to>
+			<read>Other</read>
+		</transition>
+		<transition>
+			<from>12</from>
+			<to>13</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>'</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>3</to>
+			<read>'</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>-EOL</read>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>8</to>
+			<read>-'</read>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>3</to>
+			<read>-'</read>
+		</transition>
+		<transition>
+			<from>8</from>
+			<to>12</to>
+			<read>-EOL</read>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>5</to>
+			<read/>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>4</to>
+			<read>-EOF</read>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>Other</read>
+		</transition>
+		<transition>
+			<from>9</from>
+			<to>2</to>
+			<read/>
+		</transition>
+		<note>
+			<text>Name: strCharConstant</text>
+			<x>72.0</x>
+			<y>33.0</y>
+		</note>
+	</automaton>
+</structure>

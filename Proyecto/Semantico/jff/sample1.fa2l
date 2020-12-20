@@ -1,0 +1,26 @@
+#include "lexer.h"
+
+/*!fa2lexer
+    %option generate.tokens = true;
+
+    %file "start.jff";
+    %file "analizer.jff";
+
+
+    %generate.state_enum(State);
+*/
+
+Token Lexer::getNextToken()
+{
+    text = "";
+/*!fa2lexer
+    %generate.lexer(text);
+*/
+}
+
+const char *Lexer::tokenToString(Token tk)
+{
+/*!fa2lexer
+    %generate.toString(tk);
+*/    
+}

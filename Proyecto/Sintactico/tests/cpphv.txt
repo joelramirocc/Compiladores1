@@ -1,0 +1,699 @@
+
+#include"Sintactico.h"
+#include<iostream>
+#include "tokens.h"
+using namespace std;
+
+void Sintactico::consume()
+{
+}
+
+
+
+bool Sintactico::validate(Token token, bool c)
+{
+	return false;
+}
+
+bool Sintactico::validates(vector<Token> tokens, bool c)
+{
+	return false;
+}
+
+void Sintactico::constant()
+{
+
+
+	if (this->validates(constants, true))
+	{
+		return;
+	}
+	else if (this->validates(bools, true))
+	{
+		return;
+	}
+	else
+	{
+		throw string("Se esperaba una constante([int],[char],[true] o [false])");
+	}
+}
+
+void Sintactico::boolConstant()
+{
+	if (!this->validates(bools, true))
+	{
+		throw string("Se esperaba operador [true] o [false]");
+	}
+}
+
+void Sintactico::binOperator()
+{
+	if (this->validates(aritmetics, true))
+	{
+
+	}
+	else if (this->validates(rels, true))
+	{
+
+	}
+	else if (this->validates(equals, true))
+	{
+
+	}
+	else if (this->validates(conditionals, true))
+	{
+
+	}
+	else
+	{
+		throw string("Se esperaba un operador binario");
+	}
+}
+
+void Sintactico::conditionalOperator()
+{
+    if (this->validates(conditionals, true))
+	{
+
+	}
+	else
+	{
+		throw string("Se esperaba un operador condicional");
+	}
+}
+
+void Sintactico::lValue()
+{
+	if (this->validate(Token::ID, true))
+	{
+		if (this->validate(Token::OperOpenSquare, true))
+		{
+			this->expr();
+
+			if (!this->validate(Token::OperCloseSquare, true))
+			{
+				throw string("Se esperaba [ ] ]");
+			}
+		}
+	}
+}
+
+
+
+
+void Sintactico::program()
+{
+	if (this->validate(Token::KwProgram, true))
+	{
+
+		if (this->validate(Token::ID, true))
+		{
+
+			if (this->validate(Token::OperSemiColon, true))
+			{
+
+				if (this->validate(Token::KwVar, false))
+				{
+					this->variableSection();
+				}
+
+				while (this->validate(Token::KwFunction, false)) //subProgramDecl
+				{
+					this->subProgramDeclaration();
+				}
+
+				if (this->validate(Token::KwBegin, true))
+				{
+
+					vector<Token> statementsValues;
+					statementsValues.push_back(Token::ID); // aqui puede ser uno de dos tipos si inicia con ID. validar eso luego
+					statementsValues.push_back(Token::KwWrite);
+					statementsValues.push_back(Token::KwWriteln);
+					statementsValues.push_back(Token::KwRead);
+					statementsValues.push_back(Token::KwIf);
+					statementsValues.push_back(Token::KwWhile);
+					statementsValues.push_back(Token::KwRepeat);
+					statementsValues.push_back(Token::KwFor);
+					statementsValues.push_back(Token::KwBreak);
+					statementsValues.push_back(Token::KwContinue);
+					while (this->validates(statementsValues, false)) //statement
+					{
+						this->statement();
+					}
+
+					if (this->validate(Token::KwEnd, true))
+					{
+
+						if (!this->validate(Token::OpPoint, true))
+						{
+							throw string("Se esperaba [.]");
+						}
+					}
+					else
+					{
+						throw string("Se esperaba end");
+					}
+				}
+				else
+				{
+					throw string("Se esperaba begin");
+				}
+
+			}
+			else
+			{
+				throw string("Se esperaba [;]");
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [ID]");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba [program]");
+	}
+}
+
+void Sintactico::variableSection()
+{
+	if (this->validate(Token::KwVar, true))
+	{
+		if (this->validate(Token::ID, false))
+		{
+			while (this->validate(Token::ID, false))
+			{
+				this->variableDeclaration();
+			}
+		}
+		else
+		{
+			throw string("Se esperaba al menos 1 identificador");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba [var]");
+	}
+}
+
+void Sintactico::variableDeclaration()
+{
+	if (this->validate(Token::ID, false))
+	{
+		while (this->validate(Token::ID, true))
+		{
+			vector<Token> vals;
+			vals.push_back(Token::OperComma);
+			vals.push_back(Token::OperColon);
+			if (!this->validates(vals, true))
+			{
+				throw string("Se esperaba al menos 1 identificador");
+			}
+		}
+
+		if (this->validate(Token::OperColon, true))
+		{
+			this->type();
+
+			if (!this->validate(Token::OperSemiColon, true))
+			{
+				throw string("Se esperaba [;]");
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [:]");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba al menos 1 identificador");
+	}
+}
+
+
+void Sintactico::type()
+{
+	vector<Token> types;
+	types.push_back(Token::Number);//integer
+	types.push_back(Token::KwBoolean);
+	types.push_back(Token::KwChar);
+	types.push_back(Token::KwArray);
+
+	if (this->validates(types, false))
+	{
+		Token t = this->cT;
+		//this->consume(); se debe consumir el token
+		switch (t)
+		{
+		case Token::Number: //asi todos los casos
+			break;
+		}
+	}
+	else
+	{
+		throw string("Se esperaba un tipo");
+	}
+}
+
+void Sintactico::arrayType()
+{
+	if (this->validate(Token::KwArray, true))
+	{
+
+		if (this->validate(Token::OperOpenSquare, true))
+		{
+
+			if (this->validate(Token::Number, true)) //intconstant
+			{
+
+				if (this->validate(Token::OpPointPoint, true))
+				{
+
+					if (this->validate(Token::Number, true)) //intconstant
+					{
+
+						if (this->validate(Token::OperCloseSquare, true))
+						{
+
+							if (this->validate(Token::KwOf, true))
+							{
+								this->type();
+							}
+							else
+							{
+								throw string("Se esperaba [of]");
+							}
+						}
+						else
+						{
+							throw string("Se esperaba [ ] ]");
+						}
+					}
+					else
+					{
+						throw string("Se esperaba [intConstant]");
+					}
+				}
+				else
+				{
+					throw string("Se esperaba [..]");
+				}
+			}
+			else
+			{
+				throw string("Se esperaba [intConstant]");
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [ [ ]");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba [array]");
+	}
+}
+
+void Sintactico::subProgramDeclaration()
+{
+	this->subProgramHeader();
+
+	if (this->validate(Token::KwVar, false))
+	{
+		this->variableSection();
+	}
+
+	if (this->validate(Token::KwBegin,true))
+	{
+		vector<Token> statementsValues;
+		statementsValues.push_back(Token::ID); // aqui puede ser uno de dos tipos si inicia con ID. validar eso luego
+		statementsValues.push_back(Token::KwWrite);
+		statementsValues.push_back(Token::KwWriteln);
+		statementsValues.push_back(Token::KwRead);
+		statementsValues.push_back(Token::KwIf);
+		statementsValues.push_back(Token::KwWhile);
+		statementsValues.push_back(Token::KwRepeat);
+		statementsValues.push_back(Token::KwFor);
+		statementsValues.push_back(Token::KwBreak);
+		statementsValues.push_back(Token::KwContinue);
+		while (this->validates(statementsValues, false)) //statement
+		{
+			this->statement();
+		}
+
+		if (this->validate(Token::KwEnd,true))
+		{
+
+			if (!this->validate(Token::OperSemiColon,true))
+			{
+				throw string("Se esperaba [;]");
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [end]");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba [begin]");
+	}
+}
+
+void Sintactico::subProgramHeader()
+{
+	if (this->validate(Token::KwFunction, false))
+	{
+		this->functionHeader();
+	}
+	else if (this->validate(Token::KwProcedure, false))
+	{
+		this->procedureHeader();
+	}
+	else
+	{
+		throw string("Se esperaba [function] o [procedure]");
+	}
+}
+
+void Sintactico::functionHeader()
+{
+	if (this->validate(Token::KwFunction, true))
+	{
+		if (this->validate(Token::ID, true))
+		{
+
+			if (this->validate(Token::OperOpenPar, true))
+			{
+				vector<Token> val;
+				val.push_back(Token::KwVar);
+				val.push_back(Token::ID);
+				if (this->validates(val, false))
+				{
+					while (this->validates(val, false))
+					{
+						this->argumentDecl();
+						if (this->validates(val, false))
+						{
+							if (!this->validate(Token::OperComma, true))
+							{
+								throw string("Se esperaba [,]");
+							}
+						}
+					}
+				}
+				else
+				{
+					throw string("Se esperaba por lo menos 1 [var] o [ID]");
+				}
+
+				if (!this->validate(Token::OperClosePar, true))
+				{
+					throw string("Se esperaba [ ) ]");
+				}
+			}
+
+
+			if (this->validate(Token::OperColon, true))
+			{
+				this->type();
+
+				if (this->validate(Token::OperSemiColon, true))
+				{
+					throw string("Se esperaba [;]");
+				}
+			}
+			else
+			{
+				throw string("Se esperaba [:]");
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [ID]");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba [function]");
+	}
+}
+
+void Sintactico::procedureHeader()
+{
+	if (this->validate(Token::KwProcedure, true))
+	{
+		if (this->validate(Token::ID, true))
+		{
+
+			if (this->validate(Token::OperOpenPar, true))
+			{
+				vector<Token> val;
+				val.push_back(Token::KwVar);
+				val.push_back(Token::ID);
+				if (this->validates(val, false))
+				{
+					while (this->validates(val, false))
+					{
+						this->argumentDecl();
+						if (this->validates(val, false))
+						{
+							if (!this->validate(Token::OperComma, true))
+							{
+								throw string("Se esperaba [,]");
+							}
+						}
+					}
+				}
+				else
+				{
+					throw string("Se esperaba por lo menos 1 [var] o [ID]");
+				}
+
+				if (!this->validate(Token::OperClosePar, true))
+				{
+					throw string("Se esperaba [ ) ]");
+				}
+			}
+
+			if (this->validate(Token::OperSemiColon, true))
+			{
+				throw string("Se esperaba [;]");
+			}
+
+		}
+		else
+		{
+			throw string("Se esperaba [ID]");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba [procedure]");
+	}
+}
+
+void Sintactico::argumentDecl()
+{
+	if (this->validate(Token::KwVar,true))
+	{
+		if (this->validate(Token::ID,true))
+		{
+			if (this->validate(Token::OperColon,true))
+			{
+				this->type();
+			}
+			else
+			{
+				throw string("Se esperaba [:]");
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [ID]");
+		}
+	}
+	else if (this->validate(Token::ID,true))
+	{
+		if (this->validate(Token::OperColon,true))
+		{
+			this->type();
+		}
+		else
+		{
+			throw string("Se esperaba [:]");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba [var] o [ID]");
+	}
+}
+
+void Sintactico::statement()
+{
+	vector<Token> assignOrSubPrograms;
+	assignOrSubPrograms.push_back(Token::ID);
+	assignOrSubPrograms.push_back(Token::KwWrite);
+	assignOrSubPrograms.push_back(Token::KwWriteln);
+	assignOrSubPrograms.push_back(Token::KwRead);
+
+	if (this->validates(assignOrSubPrograms, false))
+	{
+		this->assignOrSupProgram();
+		if (!this->validate(Token::OperSemiColon, true))
+		{
+			throw string("Se esperaba [;]");
+		}
+	}
+	else if (this->validate(Token::KwIf, true))
+	{
+		this->expr();
+		if (this->validate(Token::KwThen, true))
+		{
+			this->block();
+			if (this->validate(Token::KwElse, true))
+			{
+				this->block();
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [then]");
+		}
+	}
+	else if (this->validate(Token::KwWhile, true))
+	{
+		this->expr();
+		if (this->validate(Token::KwDo, true))
+		{
+			this->block();
+		}
+		else
+		{
+			throw string("Se esperaba [do]");
+		}
+	}
+	else if (this->validate(Token::KwRepeat, true))
+	{
+		this->block();
+		if (this->validate(Token::KwUntil, true))
+		{
+			this->expr();
+			if (this->validate(Token::OperSemiColon, true))
+			{
+				throw string("Se esperaba [;]");
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [until]");
+		}
+	}
+	else if (this->validate(Token::KwFor, true))
+	{
+		this->assign();
+		this->expr();
+		if (this->validate(Token::KwTo, true))
+		{
+			this->expr();
+			if (this->validate(Token::KwDo, true))
+			{
+				this->block();
+			}
+			else
+			{
+				throw string("Se esperaba [do]");
+			}
+		}
+		else
+		{
+			throw string("Se esperaba [to]");
+		}
+	}
+	else if (this->validate(Token::KwBreak, true))
+	{
+		if (!this->validate(Token::OperSemiColon, true))
+		{
+			throw string("Se esperaba [;]");
+		}
+	}
+	else if (this->validate(Token::KwContinue, true))
+	{
+		if (!this->validate(Token::OperSemiColon, true))
+		{
+			throw string("Se esperaba [continue]");
+		}
+	}
+	else
+	{
+		throw string("Se esperaba [statement]");
+	}
+}
+
+void Sintactico::assignOrSupProgram()
+{
+	if (this->validate(Token::ID, true))
+	{
+		if (this->validate(Token::OperOpenSquare, true))
+		{
+			this->expr();
+
+			if (this->validate(Token::OperCloseSquare, true))
+			{
+				if (this->validate(Token::OpColonAssign, true))
+				{
+					this->expr();
+				}
+				else 
+				{
+					throw string("Se esperaba [ := ]");
+				}
+			}
+			else
+			{
+				throw string("Se esperaba [ ] ]");
+			}
+		}
+		else if (this->validate(Token::OperOpenPar, true))
+		{
+
+		}
+	}
+	else if (this->validate(Token::KwWrite, true))
+	{
+
+	}
+	else if (this->validate(Token::KwWriteln, true))
+	{
+
+	}
+	else if (this->validate(Token::KwRead, true))
+	{
+
+	}
+	else
+	{
+		throw string("Se esperaba [assign] or [subprogram]");
+	}
+}
+
+void Sintactico::expr()
+{
+	if (this->validate(Token::ID, false))
+	{
+		this->lValue();
+	}
+	/*
+			| <subprogram-call>
+		| <constant>
+		| <expr> <bin-op> <expr>
+		| ’-’ <expr>
+		| not <expr>
+		| ’(’ <expr> ’)’
+	*/
+}

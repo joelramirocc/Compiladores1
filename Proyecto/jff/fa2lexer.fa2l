@@ -1,0 +1,238 @@
+#include "lexer.h"
+using namespace std;
+/*!fa2lexer
+    %option generate.tokens = true;
+
+    %file "start.jff";
+    %file "comments.jff";
+    %file "constants.jff";
+    %file "operators.jff";
+    %file "identifiers.jff";
+    %file "charOrString.jff";
+
+    %token.descriptions {
+        ID = "Identifier",
+        Unknown = "Unknown",
+        stringConstant = "stringConstant",
+        charConstant = "charConstant",
+        KwAnd = "Keyword 'and'",
+        KwArray = "Keyword 'array'",
+        KwBegin = "Keyword 'begin'",
+        KwBoolean = "Keyword 'boolean'",
+        KwBreak = "Keyword 'break'",
+        KwChar = "Keyword 'char'",
+        KwContinue = "Keyword 'continue'",
+        KwDiv = "Keyword 'div'",
+        KwDo = "Keyword 'do'",
+        KwElse = "Keyword 'else'",
+        KwEnd = "Keyword 'end'",
+        KwFalse = "Keyword 'false'",
+        KwFor = "Keyword 'for'",
+        KwFunction = "Keyword 'function'",
+        KwIf = "Keyword 'if'",
+        KwInteger = "Keyword 'integer'",
+        KwMod = "Keyword 'mod'",
+        KwNot = "Keyword 'not'",
+        KwOf = "Keyword 'of'",
+        KwOr = "Keyword 'or'",
+        KwProcedure = "Keyword 'procedure'",
+        KwProgram = "Keyword 'program'",
+        KwRead = "Keyword 'read'",
+        KwRepeat = "Keyword 'repeat'",
+        KwShl = "Keyword 'shl'",
+        KwShr = "Keyword 'shr'",
+        KwThen = "Keyword 'then'",
+        KwTo = "Keyword 'to'",
+        KwTrue = "Keyword 'true'",
+        KwUntil = "Keyword 'until'",
+        KwVar = "Keyword 'var'",
+        KwWhile = "Keyword 'while'",
+        KwWrite = "Keyword 'write'",
+        KwWriteln = "Keyword 'writeln'",
+        KwXor = "Keyword 'xor'"
+    }
+
+    %generate.state_enum(State);
+*/
+
+Token Lexer::getNextToken()
+{
+    text = "";
+/*!fa2lexer
+    %generate.lexer(text);
+*/
+}
+
+
+Token Lexer::charOrString(const std::string& str)
+{
+    if(str.length() == 3 && int(str[2]) >= 32 && int(str[2]) <= 126)
+    {
+        return Token::charConstant;
+    }
+    else
+    {
+        return Token::stringConstant;
+    }
+}
+
+Token Lexer::findKeyword(const std::string& txt)
+{
+    std::string str = txt;
+    for(int i = 0; i < txt.length(); i++)
+    {
+        str[i] = tolower(txt[i]);
+    }
+
+    if(str == "and")
+    {
+        return Token::KwAnd;
+    }
+    else if(str == "array")
+    {
+        return Token::KwArray;
+    }
+    else if(str == "begin")
+    {
+        return Token::KwBegin;
+    }
+    else if(str == "boolean")
+    {
+        return Token::KwBoolean;
+    }
+    else if(str == "break")
+    {
+        return Token::KwBreak;
+    }
+    else if(str == "char")
+    {
+        return Token::KwChar;
+    }
+    else if(str == "continue")
+    {
+        return Token::KwContinue;
+    }
+    else if(str == "div")
+    {
+        return Token::KwDiv;
+    }
+    else if(str == "do")
+    {
+        return Token::KwDo;
+    }
+    else if(str == "else")
+    {
+        return Token::KwElse;
+    }
+    else if(str == "end")
+    {
+        return Token::KwEnd;
+    }
+    else if(str == "false")
+    {
+        return Token::KwFalse;
+    }
+    else if(str == "for")
+    {
+        return Token::KwFor;
+    }
+    else if(str == "function")
+    {
+        return Token::KwFunction;
+    }
+    else if(str == "if")
+    {
+        return Token::KwIf;
+    }
+    else if(str == "integer")
+    {
+        return Token::KwInteger;
+    }
+    else if(str == "mod")
+    {
+        return Token::KwMod;
+    }
+    else if(str == "not")
+    {
+        return Token::KwNot;
+    }
+    else if(str == "of")
+    {
+        return Token::KwOf;
+    }
+    else if(str == "or")
+    {
+        return Token::KwOr;
+    }
+    else if(str == "procedure")
+    {
+        return Token::KwProcedure;
+    }
+    else if(str == "program")
+    {
+        return Token::KwProgram;
+    }
+    else if(str == "read")
+    {
+        return Token::KwRead;
+    }
+    else if(str == "repeat")
+    {
+        return Token::KwRepeat;
+    }
+    else if(str == "shl")
+    {
+        return Token::KwShl;
+    }
+    else if(str == "shr")
+    {
+        return Token::KwShr;
+    }
+    else if(str == "then")
+    {
+        return Token::KwThen;
+    }
+    else if(str == "to")
+    {
+        return Token::KwTo;
+    }
+    else if(str == "true")
+    {
+        return Token::KwTrue;
+    }
+    else if(str == "until")
+    {
+        return Token::KwUntil;
+    }
+    else if(str == "var")
+    {
+        return Token::KwVar;
+    }
+    else if(str == "while")
+    {
+        return Token::KwWhile;
+    }
+    else if(str == "write")
+    {
+        return Token::KwWrite;
+    }
+    else if(str == "writeln")
+    {
+        return Token::KwWriteln;
+    }
+    else if(str == "xor")
+    {
+        return Token::KwXor;
+    }
+    else 
+    {
+        return Token::ID;
+    }
+}
+
+const char *Lexer::tokenToString(Token tk)
+{
+/*!fa2lexer
+    %generate.toString(tk);
+*/    
+}
